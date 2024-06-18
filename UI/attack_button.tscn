@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://d7us6o6ahmsr"]
+
+[ext_resource type="Script" path="res://UI/attack_button.gd" id="1_8angc"]
+[ext_resource type="Texture2D" uid="uid://bxkjke1j2jrbg" path="res://assets/LargeHandleFilledGrey.png" id="2_l4imd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ajlun"]
+radius = 81.0
+
+[node name="AttackButton" type="TouchScreenButton"]
+shape = SubResource("CircleShape2D_ajlun")
+script = ExtResource("1_8angc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.167, 1.167)
+texture = ExtResource("2_l4imd")
+
+[connection signal="released" from="." to="." method="Attack"]

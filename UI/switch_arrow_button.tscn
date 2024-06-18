@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dp4v1jst46u7t"]
+
+[ext_resource type="Texture2D" uid="uid://bxkjke1j2jrbg" path="res://assets/LargeHandleFilledGrey.png" id="1_de5vj"]
+[ext_resource type="Script" path="res://UI/switch_arrow_button.gd" id="1_vaw15"]
+[ext_resource type="Texture2D" uid="uid://dw023vemho2jm" path="res://assets/Arrow.png" id="2_8e1lk"]
+[ext_resource type="Texture2D" uid="uid://gg068b0nps1o" path="res://assets/Explosions.png" id="3_rom0a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7oup3"]
+radius = 81.0
+
+[node name="SwitchArrowButton" type="TouchScreenButton"]
+shape = SubResource("CircleShape2D_7oup3")
+script = ExtResource("1_vaw15")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.8)
+scale = Vector2(1.167, 1.167)
+texture = ExtResource("1_de5vj")
+
+[node name="PenetratingArrow" type="Sprite2D" parent="Sprite2D"]
+texture = ExtResource("2_8e1lk")
+vframes = 2
+
+[node name="ExplosiveArrow" type="Sprite2D" parent="Sprite2D"]
+texture = ExtResource("3_rom0a")
+hframes = 9
+frame = 2
+
+[connection signal="released" from="." to="." method="SwitchState"]

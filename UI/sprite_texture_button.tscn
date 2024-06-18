@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjwibfo0upq80"]
+
+[ext_resource type="Texture2D" uid="uid://d11n5pyh5pfmk" path="res://assets/Button_Blue.png" id="1_wd8xw"]
+[ext_resource type="Texture2D" uid="uid://coa2rlq1fvop2" path="res://assets/Button_Blue_Pressed.png" id="2_yltlm"]
+[ext_resource type="Script" path="res://UI/sprite_texture_button.gd" id="3_u8ts6"]
+[ext_resource type="Texture2D" uid="uid://i12fxxsjwjpi" path="res://assets/Regular_02.png" id="4_14ed3"]
+
+[node name="SpriteTextureButton" type="TextureButton"]
+anchors_preset = -1
+anchor_left = 0.472222
+anchor_top = 0.450617
+anchor_right = 0.527778
+anchor_bottom = 0.549383
+offset_bottom = 3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(32, 32)
+keep_pressed_outside = true
+texture_normal = ExtResource("1_wd8xw")
+texture_pressed = ExtResource("2_yltlm")
+stretch_mode = 0
+script = ExtResource("3_u8ts6")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_14ed3")
+
+[connection signal="button_down" from="." to="." method="ShowPressedTexture"]
+[connection signal="button_up" from="." to="." method="ShowNormalTexture"]

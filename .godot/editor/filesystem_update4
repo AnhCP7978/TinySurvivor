@@ -1,0 +1,9 @@
+res://root.tscn
+res://Projectiles/dummy.gd
+res://UI/text_texture_button.gd
+res://root.gd
+res://UI/pause_screen.tscn
+res://UI/end_game_screen.tscn
+res://UI/main_menu.tscn
+res://Characters/goblin.tscn
+res://Characters/base_goblin.gd

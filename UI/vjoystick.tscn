@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cotshqg1vbjy7"]
+
+[ext_resource type="Script" path="res://UI/vjoystick.gd" id="1_tt74a"]
+[ext_resource type="Texture2D" uid="uid://bs0bwmdr41uan" path="res://assets/SmallHandleFilled.png" id="2_7fflp"]
+[ext_resource type="Texture2D" uid="uid://bod1hlridct6t" path="res://assets/Joystick.png" id="2_po1oq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hnnor"]
+radius = 97.2
+
+[node name="VJoystick" type="TouchScreenButton"]
+shape = SubResource("CircleShape2D_hnnor")
+shape_visible = false
+script = ExtResource("1_tt74a")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.333333)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("2_po1oq")
+
+[node name="Sub" type="Sprite2D" parent="Sprite2D"]
+self_modulate = Color(1, 1, 1, 0.501961)
+texture = ExtResource("2_7fflp")
+
+[connection signal="released" from="." to="." method="_on_released"]

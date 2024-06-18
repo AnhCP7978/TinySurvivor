@@ -1,0 +1,225 @@
+[gd_scene load_steps=10 format=3 uid="uid://dbsxvbmsl8qbq"]
+
+[ext_resource type="Script" path="res://UI/pause_screen.gd" id="1_hpe5g"]
+[ext_resource type="Texture2D" uid="uid://b1m64mrptx6xt" path="res://assets/Archer.png" id="2_4y0j7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujibo"]
+atlas = ExtResource("2_4y0j7")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmub6"]
+atlas = ExtResource("2_4y0j7")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22j7q"]
+atlas = ExtResource("2_4y0j7")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f20gb"]
+atlas = ExtResource("2_4y0j7")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fmwc"]
+atlas = ExtResource("2_4y0j7")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_entps"]
+atlas = ExtResource("2_4y0j7")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c841r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujibo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmub6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22j7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f20gb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fmwc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_entps")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}]
+
+[node name="PauseScreen" type="ColorRect"]
+process_mode = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.501961)
+script = ExtResource("1_hpe5g")
+
+[node name="Stats" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00520833
+anchor_top = 0.419753
+anchor_right = 0.3
+anchor_bottom = 0.99537
+offset_top = 1.52588e-05
+theme_override_constants/separation = 5
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="Dmg" type="Label" parent="Stats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "- DMG Power: 1"
+
+[node name="AtkArea" type="Label" parent="Stats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "- Attack Area: 1"
+
+[node name="AtkSpeed" type="Label" parent="Stats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "- Attack Speed: 1.0"
+
+[node name="Speed" type="Label" parent="Stats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "- Speed: 200"
+
+[node name="ExpGained" type="Label" parent="Stats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "- x1.0 Exp Gained"
+
+[node name="PickupPower" type="Label" parent="Stats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "- Pickup Power: 1"
+
+[node name="FoodDropChance" type="Label" parent="Stats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "- Food Drop Chance: 5%"
+
+[node name="DummyCD" type="Label" parent="Stats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "- Dummy CD:  30"
+
+[node name="Player" type="AnimatedSprite2D" parent="."]
+position = Vector2(174, 174)
+scale = Vector2(1.8, 1.8)
+sprite_frames = SubResource("SpriteFrames_c841r")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.28217
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35
+anchor_top = 0.025
+anchor_right = 0.975
+anchor_bottom = 0.85
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuButton" type="Button" parent="."]
+self_modulate = Color(0, 1, 1, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.305
+anchor_top = 0.9
+anchor_right = 0.5
+anchor_bottom = 0.995
+text = "Main Menu"
+metadata/_edit_use_anchors_ = true
+
+[node name="RerollButton" type="Button" parent="."]
+self_modulate = Color(1, 1, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.55
+anchor_top = 0.9
+anchor_right = 0.75
+anchor_bottom = 0.995
+text = "Reroll"
+metadata/_edit_use_anchors_ = true
+
+[node name="ConfirmButton" type="Button" parent="."]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8
+anchor_top = 0.9
+anchor_right = 0.995
+anchor_bottom = 0.99537
+text = "Confirm"
+metadata/_edit_use_anchors_ = true
+
+[node name="ConfirmScreen" type="ColorRect" parent="."]
+visible = false
+self_modulate = Color(0, 0, 0, 0.2)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="ConfirmScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.3
+anchor_right = 0.7
+anchor_bottom = 0.7
+color = Color(1, 1, 1, 0.501961)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ConfirmScreen/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+theme_override_font_sizes/font_size = 40
+text = "Are you sure? (Y/N)"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Yes" type="Button" parent="ConfirmScreen/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.005
+anchor_top = 0.505
+anchor_right = 0.5
+anchor_bottom = 0.995
+theme_override_font_sizes/font_size = 60
+text = "YES"
+metadata/_edit_use_anchors_ = true
+
+[node name="No" type="Button" parent="ConfirmScreen/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.505
+anchor_top = 0.505
+anchor_right = 0.995
+anchor_bottom = 0.995
+theme_override_font_sizes/font_size = 60
+text = "NO"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="button_up" from="MenuButton" to="." method="_on_menu_button_button_up"]
+[connection signal="button_up" from="RerollButton" to="." method="_on_reroll_button_button_up"]
+[connection signal="button_up" from="ConfirmButton" to="." method="_on_confirm_button_button_up"]
+[connection signal="button_up" from="ConfirmScreen/ColorRect/Yes" to="." method="_on_yes_button_up"]
+[connection signal="button_up" from="ConfirmScreen/ColorRect/No" to="." method="_on_no_button_up"]

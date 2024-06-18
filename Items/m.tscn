@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://bi6hrcylauw62"]
+
+[ext_resource type="Texture2D" uid="uid://bswywd08bcekq" path="res://assets/M_Spawn.png" id="1_a4xqh"]
+[ext_resource type="Script" path="res://Items/m.gd" id="1_adgf1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b1ak3"]
+radius = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yttbr"]
+atlas = ExtResource("1_a4xqh")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwg42"]
+atlas = ExtResource("1_a4xqh")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c803r"]
+atlas = ExtResource("1_a4xqh")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2qph"]
+atlas = ExtResource("1_a4xqh")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd6to"]
+atlas = ExtResource("1_a4xqh")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx0ku"]
+atlas = ExtResource("1_a4xqh")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28ith"]
+atlas = ExtResource("1_a4xqh")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ija3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yttbr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwg42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c803r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2qph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qd6to")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xx0ku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28ith")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="M" type="Area2D"]
+collision_layer = 8
+input_pickable = false
+script = ExtResource("1_adgf1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 12)
+shape = SubResource("CircleShape2D_b1ak3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1ija3")
+autoplay = "default"
+frame = 6
+frame_progress = 1.0

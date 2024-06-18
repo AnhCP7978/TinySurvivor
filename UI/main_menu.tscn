@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1txx0jsdfwlr"]
+
+[ext_resource type="Script" path="res://UI/main_menu.gd" id="1_723t8"]
+[ext_resource type="Texture2D" uid="uid://c5ytckftd1kmn" path="res://assets/grassland.png" id="2_y463k"]
+[ext_resource type="Texture2D" uid="uid://5eo7tbqr2ojl" path="res://assets/Stone.png" id="3_k20ww"]
+[ext_resource type="Texture2D" uid="uid://bsa73oribi33x" path="res://assets/Dummy.png" id="4_0lltv"]
+[ext_resource type="PackedScene" uid="uid://cw22mr1p08ewi" path="res://UI/text_texture_button.tscn" id="5_tps12"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_723t8")
+
+[node name="Deco" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(576, 324)
+texture = ExtResource("2_y463k")
+region_enabled = true
+region_rect = Rect2(64, 64, 1152, 648)
+
+[node name="Stone" type="Sprite2D" parent="Deco"]
+position = Vector2(-372, 205)
+texture = ExtResource("3_k20ww")
+
+[node name="Stone2" type="Sprite2D" parent="Deco"]
+position = Vector2(-372, 154)
+texture = ExtResource("3_k20ww")
+
+[node name="Stone3" type="Sprite2D" parent="Deco"]
+position = Vector2(-406, 121)
+texture = ExtResource("3_k20ww")
+
+[node name="Stone4" type="Sprite2D" parent="Deco"]
+position = Vector2(-322, 122)
+texture = ExtResource("3_k20ww")
+
+[node name="Stone5" type="Sprite2D" parent="Deco"]
+position = Vector2(-369, 86)
+texture = ExtResource("3_k20ww")
+
+[node name="Dummy" type="Sprite2D" parent="Deco"]
+position = Vector2(-308, 148)
+texture = ExtResource("4_0lltv")
+
+[node name="Dummy2" type="Sprite2D" parent="Deco"]
+position = Vector2(-429, 149)
+texture = ExtResource("4_0lltv")
+
+[node name="PlayButton" parent="." instance=ExtResource("5_tps12")]
+layout_mode = 1
+anchor_left = 0.400174
+anchor_top = 0.35
+anchor_right = 0.599826
+anchor_bottom = 0.5
+offset_bottom = 0.0
+
+[node name="TutorialButton" parent="." instance=ExtResource("5_tps12")]
+layout_mode = 1
+anchor_left = 0.4
+anchor_top = 0.55
+anchor_right = 0.6
+anchor_bottom = 0.7
+
+[node name="QuitButton" parent="." instance=ExtResource("5_tps12")]
+layout_mode = 1
+anchor_left = 0.4
+anchor_top = 0.75
+anchor_right = 0.6
+anchor_bottom = 0.9
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.05
+anchor_right = 0.8
+anchor_bottom = 0.3
+theme_override_font_sizes/font_size = 100
+text = "Tiny Survivor"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8
+anchor_top = 0.95
+anchor_right = 0.99
+anchor_bottom = 1.0
+text = "Made by Chu Phan Anh"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="PlayButton" to="." method="Play"]
+[connection signal="pressed" from="TutorialButton" to="." method="PlayTutorial"]
+[connection signal="pressed" from="QuitButton" to="." method="QuitGame"]

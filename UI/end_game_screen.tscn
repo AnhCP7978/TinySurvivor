@@ -1,0 +1,107 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmka6q8ou81r"]
+
+[ext_resource type="Script" path="res://UI/end_game_screen.gd" id="1_0umkb"]
+[ext_resource type="Texture2D" uid="uid://c5ytckftd1kmn" path="res://assets/grassland.png" id="2_sjcdt"]
+[ext_resource type="Texture2D" uid="uid://5eo7tbqr2ojl" path="res://assets/Stone.png" id="3_fd46v"]
+[ext_resource type="Texture2D" uid="uid://bsa73oribi33x" path="res://assets/Dummy.png" id="4_qh1vb"]
+[ext_resource type="PackedScene" uid="uid://cw22mr1p08ewi" path="res://UI/text_texture_button.tscn" id="5_vgob0"]
+
+[node name="EndGameScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0umkb")
+
+[node name="Deco" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(576, 324)
+texture = ExtResource("2_sjcdt")
+region_enabled = true
+region_rect = Rect2(0, 0, 1152, 648)
+
+[node name="Stone" type="Sprite2D" parent="Deco"]
+position = Vector2(-377, -104)
+texture = ExtResource("3_fd46v")
+
+[node name="Stone2" type="Sprite2D" parent="Deco"]
+position = Vector2(-343, -124)
+texture = ExtResource("3_fd46v")
+
+[node name="Stone3" type="Sprite2D" parent="Deco"]
+position = Vector2(-307, -81)
+texture = ExtResource("3_fd46v")
+
+[node name="Stone4" type="Sprite2D" parent="Deco"]
+position = Vector2(-331, -2)
+texture = ExtResource("3_fd46v")
+
+[node name="Stone5" type="Sprite2D" parent="Deco"]
+position = Vector2(-399, 74)
+texture = ExtResource("3_fd46v")
+
+[node name="Stone6" type="Sprite2D" parent="Deco"]
+position = Vector2(-467, 6)
+texture = ExtResource("3_fd46v")
+
+[node name="Stone7" type="Sprite2D" parent="Deco"]
+position = Vector2(-511, -67)
+texture = ExtResource("3_fd46v")
+
+[node name="Stone8" type="Sprite2D" parent="Deco"]
+position = Vector2(-486, -125)
+texture = ExtResource("3_fd46v")
+
+[node name="Stone9" type="Sprite2D" parent="Deco"]
+position = Vector2(-409, -75)
+texture = ExtResource("3_fd46v")
+
+[node name="Stone10" type="Sprite2D" parent="Deco"]
+position = Vector2(-431, 41)
+texture = ExtResource("3_fd46v")
+
+[node name="Stone11" type="Sprite2D" parent="Deco"]
+position = Vector2(-450, -94)
+texture = ExtResource("3_fd46v")
+
+[node name="Stone12" type="Sprite2D" parent="Deco"]
+position = Vector2(-297, 239)
+texture = ExtResource("3_fd46v")
+
+[node name="Dummy" type="Sprite2D" parent="Deco"]
+position = Vector2(-398, -14)
+texture = ExtResource("4_qh1vb")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+anchor_left = 0.0208333
+anchor_top = 0.0601852
+anchor_right = 0.977431
+anchor_bottom = 0.256173
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton" parent="." instance=ExtResource("5_vgob0")]
+modulate = Color(1, 1, 1, 0.8)
+layout_mode = 1
+anchor_left = 0.408854
+anchor_top = 0.381173
+anchor_right = 0.608854
+anchor_bottom = 0.531173
+offset_bottom = 0.0
+
+[node name="TextureButton2" parent="." instance=ExtResource("5_vgob0")]
+modulate = Color(1, 1, 1, 0.8)
+layout_mode = 1
+anchor_left = 0.407118
+anchor_top = 0.62037
+anchor_right = 0.607118
+anchor_bottom = 0.77037
+offset_bottom = 0.0
+
+[connection signal="pressed" from="TextureButton" to="." method="BackToMainMenu"]
+[connection signal="pressed" from="TextureButton2" to="." method="Replay"]

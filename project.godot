@@ -1,0 +1,45 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="TinySurvivor"
+run/main_scene="res://UI/main_menu.tscn"
+config/features=PackedStringArray("4.2", "Mobile")
+config/icon="res://FUWAMOCO.png"
+
+[autoload]
+
+Global="*res://global.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
+
+[filesystem]
+
+import/blender/enabled=false
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Enemy"
+2d_physics/layer_3="Area"
+2d_physics/layer_4="Item"
+2d_physics/layer_5="StaticBody"
+
+[rendering]
+
+renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
